@@ -1,0 +1,34 @@
+---
+title: "test_markdown"
+author: "MM Max"
+date: "5/19/2019"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Load tidyverse package
+
+```{r echo=FALSE}
+library(tidyverse)
+```
+
+## Assign mpg dataset to object
+
+```{r}
+df <- mpg
+df
+```
+
+## Sample visualisation
+
+```{r}
+ggplot(df, aes(x = hwy, y = cty)) +
+  geom_point() +
+  geom_smooth(aes(color = 'Loess')) +
+  geom_smooth(method = "lm", aes(color = 'Linear')) +
+  labs(colour = "Method Smooth")
+```
+
